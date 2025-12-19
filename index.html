@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO DO list</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="head">
+      <h1 class="header">A Simple to Do list to track your Daily stuff</h1>
+      <h3 class="date">12/06/2025</h3>
+      <!-- Shows todays date -->
+      <p class="tasksCompleted">All tasks are done</p>
+      <!-- shows how many tasks to do or if all the tasks are complete -->
+    </div>
+
+    <div class="taskBox">
+        
+      <ol class="taskList">
+        <h3>To-Do list</h3>
+        <li class="tasks" id="1">
+          Check mails
+          <div class="taskButtons">
+            <button class="Done" id="1">Done</button>
+            <button class="delete" id="1">Delete</button>
+          </div>
+        </li>
+        <li class="tasks" id="2">
+          Collect garbage
+          <div class="taskButtons">
+            <button class="Done" id="2">Done</button>
+            <button class="delete" id="1">Delete</button>
+          </div>
+        </li>
+        <li class="tasks" id="3">
+          Do nails
+          <div class="taskButtons">
+            <button class="Done" id="3">Done</button>
+            <button class="delete" id="1">Delete</button>
+          </div>
+        </li>
+        <li class="tasks" id="4">
+          Hit the gym
+          <div class="taskButtons">
+            <button class="Done" id="1">Done</button>
+            <button class="delete" id="1">Delete</button>
+          </div>
+        </li>
+    </ol>
+    </div>
+
+    <div class="taskBox">
+        
+      <ol class="taskList">
+        <h3>Completed</h3>
+        <li class="tasks" id="4">
+          Hit the gym ✅
+        </li>
+        
+        </ol>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
