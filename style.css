@@ -57,7 +57,7 @@ body{
 
 }
 
-.taskList h3{
+.taskList, .CompletedTaskList h3{
     font-size: 2rem;
 }
 

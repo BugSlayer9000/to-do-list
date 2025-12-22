@@ -2,7 +2,7 @@
 
 // to-dos for this program
 
-// 1. Error trap the input for creat task
+// 1. Error trap the input for creat task - Done
 // 2. Add the remaining functionality
 
 
@@ -21,38 +21,59 @@ function showPopUp() {
 }
 
 function addTask() {
-
-  
-  
   // pop um menu add task
   const taskInput = document.querySelector(".taskInput");
   const taskInputText = taskInput.value;
+  
+  if(taskInputText.length === 0){
+    taskInput.value = "";
+    popUpAddTask.style.display = "none";
+    return alert("Invalid Input ! Please try again")
+  } 
 
   taskGen(taskInputText);
 
   taskInput.value = "";
   popUpAddTask.style.display = "none";
 
+}
+
+// what happens when the user presses done
+function taskDone(finishedTask) {
+  finishedTask.remove()
+
+  removeTaskGen(finishedTask.firstChild.textContent)
+}
+
+
+// this function genarates a task and puts it in the completed section
+function removeTaskGen(textContent) {
+  const completedTaskBox = document.querySelectorAll(".completedTasks")
+
+  // create li
+  const newTask = document.createElement("li")
+  newTask.classList.add("tasks")
+
+  //del button
+  const delBtn = document.createElement("button")
+  delBtn.classList.add("taskButtons")
+
+  // add texts 
+  let textNode = document.createTextNode(`${textContent} ✅`)
+  newTask.appendChild(textNode)
+
+  const taskList = document.querySelector(".CompletedTaskList").appendChild(newTask)
   
 }
 
-function taskDone(id) {
-  console.log("taskDone", id);
-}
 
-function deleteTask(id) {
-  console.log("delete Task", id);
-}
+
 
 function taskGen(task) {
-  const toDoList = document.querySelectorAll(".tasks");
-
-  const newTaskId = toDoList.length + 1;
 
   // Creatinf li
   const newTask = document.createElement("li");
   newTask.classList.add("tasks");
-  newTask.id = newTaskId;
 
   // task text
   const textNode = document.createTextNode(task);
@@ -66,13 +87,13 @@ function taskGen(task) {
   const doneBtn = document.createElement("button");
   doneBtn.classList.add("Done");
   doneBtn.textContent = "Done";
-  doneBtn.onclick = () => taskDone(newTaskId);
+  doneBtn.onclick = () => taskDone(newTask);
 
   // delete btn
   const delBtn = document.createElement("button");
   delBtn.classList.add("delete");
   delBtn.textContent = "Delete";
-  delBtn.onclick = () => deleteTask(newTaskId);
+  delBtn.onclick = () => deleteTask(newTask);
 
   // assemble
   buttonWrapper.appendChild(doneBtn);
@@ -80,6 +101,6 @@ function taskGen(task) {
   newTask.appendChild(buttonWrapper);
 
   // appending to the dom
-  const taskList = document.querySelector(".taskList").appendChild(newTask);
+  document.querySelector(".taskList").appendChild(newTask);
 
 }
