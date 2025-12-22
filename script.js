@@ -45,6 +45,10 @@ function taskDone(finishedTask) {
   removeTaskGen(finishedTask.firstChild.textContent)
 }
 
+function deleteTask(task) {
+  task.remove()
+}
+
 
 // this function genarates a task and puts it in the completed section
 function removeTaskGen(textContent) {
@@ -65,9 +69,6 @@ function removeTaskGen(textContent) {
   const taskList = document.querySelector(".CompletedTaskList").appendChild(newTask)
   
 }
-
-
-
 
 function taskGen(task) {
 
